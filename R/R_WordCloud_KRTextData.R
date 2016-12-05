@@ -46,11 +46,16 @@ names(terms) <- c("word", "freq")
 terms <- arrange(terms, desc(freq))
 
 # Extract 15 items from head top 15.
-#top15 <- head(terms, 200)
+top15 <- head(terms, 200)
 
 # Set a random seed.
 set.seed(1)
 
 # Display a wordcloud.
-#wordcloud(words=top15$word, freq=top15$freq, min.freq = 2, max.words = 500, random.order = FALSE, rot.per = 0.3,colors=brewer.pal(8, "Dark2"))
-wordcloud(words=terms$word, freq=terms$freq, min.freq = 1, max.words = 500, random.order = FALSE, rot.per = 0.3,colors=brewer.pal(8, "Dark2"))
+wordcloud(words=top15$word, freq=top15$freq, min.freq = 1, max.words = 500, random.order = FALSE, rot.per = 0.3,colors=brewer.pal(8, "Dark2"))
+#wordcloud(words=terms$word, freq=terms$freq, min.freq = 1, max.words = 500, random.order = FALSE, rot.per = 0.3,colors=brewer.pal(8, "Dark2"))
+
+#library(ggplot2)
+#terms2 <- arrange(terms, desc(freq))
+#top10 <- head(terms2, 30)
+#ggplot(data=top10, aes(x=reorder(word,freq), y=freq, group=1, fill=word)) + geom_bar(stat="identity", aes(fill=word), position=position_dodge(), colour="black")  + theme(legend.position="right", legend.direction="vertical") + coord_flip() + geom_text(data=top10, aes(label=top10$freq), position=position_identity(), vjust=0.5, hjust=-0.2)
