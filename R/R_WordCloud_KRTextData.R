@@ -45,8 +45,8 @@ names(terms) <- c("word", "freq")
 # Sort the matrix data according to rowsums as desc order.
 terms <- arrange(terms, desc(freq))
 
-# Extract 15 items from head top 15.
-top15 <- head(terms, 200)
+# Extract top 15 records.
+top15 <- head(terms, 15)
 
 # Set a random seed.
 set.seed(1)
@@ -55,6 +55,7 @@ set.seed(1)
 wordcloud(words=top15$word, freq=top15$freq, min.freq = 1, max.words = 500, random.order = FALSE, rot.per = 0.3,colors=brewer.pal(8, "Dark2"))
 #wordcloud(words=terms$word, freq=terms$freq, min.freq = 1, max.words = 500, random.order = FALSE, rot.per = 0.3,colors=brewer.pal(8, "Dark2"))
 
+# Display a bar chart.
 #library(ggplot2)
 #terms2 <- arrange(terms, desc(freq))
 #top10 <- head(terms2, 30)
