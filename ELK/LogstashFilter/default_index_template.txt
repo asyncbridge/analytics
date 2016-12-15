@@ -1,0 +1,20 @@
+{
+  "logstash-api": {
+    "order": 0,
+    "template": "logstash-api-*",
+    "settings": {
+      "index": {
+        "number_of_shards": "3",
+        "number_of_replicas": "1"
+      }
+    },
+    "mappings": {
+      "_default_": {
+        "numeric_detection": true,
+        "_all": {
+          "enabled": false
+        }
+      }
+    }
+  }
+}
