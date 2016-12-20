@@ -4,6 +4,7 @@ PUT _template/logstash_api_template﻿
     "order": 0,
     "template": "logstash-api-*",
     "settings": {
+	  "index.mapping.total_fields.limit": 2000,
       "index": {
         "number_of_shards": "3",
         "number_of_replicas": "1"
